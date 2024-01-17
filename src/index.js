@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
-const port = 5000
+require('dotenv').config()
+// console.log(process.env.PORT);
+const port = process.env.PORT 
 app.use(express.json())
 // database conenction  
 const conenction = require('./db/connection');
@@ -19,7 +21,7 @@ app.post('/register',(req,res)=>{
 })
 
 app.post('/login',(req,res)=>{
-  Userlogin.create({userName:"shyam",password:'12345',})
+  Userlogin.create(req.body)
     // User.create(req.body)
 })
 
